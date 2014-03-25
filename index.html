@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Responsive-tabs by jellekralt</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Responsive-tabs</h1>
+        <p>Responsive Tabs is a jQuery plugin that provides responsive tab functionality. The tabs transform to an accordion when it reaches a CSS breakpoint. You can use this plugin as a solution for displaying tabs elegantly on desktop, tablet and mobile.</p>
+
+        <p class="view"><a href="https://github.com/jellekralt/Responsive-Tabs">View the Project on GitHub <small>jellekralt/Responsive-Tabs</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/jellekralt/Responsive-Tabs/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/jellekralt/Responsive-Tabs/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/jellekralt/Responsive-Tabs">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="jquery-responsive-tabs-" class="anchor" href="#jquery-responsive-tabs-"><span class="octicon octicon-link"></span></a>jQuery Responsive Tabs <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=jelle%40jellekralt%2enl&amp;lc=NL&amp;item_name=Jelle%20Kralt&amp;item_number=responsive%2dtabs&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted"><img src="https://www.paypalobjects.com/en_GB/i/btn/btn_donate_SM.gif" alt="Buy me a beer"></a>
+</h1>
+
+<p>This jQuery plugin provides responsive tab functionality. The tabs transform to an accordion when it reaches a CSS breakpoint.
+Check out a demo at <a href="http://jellekralt.github.io/Responsive-Tabs/demo.html">http://jellekralt.github.io/Responsive-Tabs/demo.html</a></p>
+
+<h1>
+<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h1>
+
+<ul>
+<li>Tabs transform to accordion based on breakpoint</li>
+<li>Uses javascript / jQuery for the technical tab switching (class based)</li>
+<li>Uses CSS for the desktop/tablet/mobile view</li>
+<li>Has callback events for the tab events</li>
+<li>Tabs can be opened with URL hashes</li>
+<li>Tabs can auto rotate</li>
+<li>Tabs can be collapsed (optional)</li>
+<li>Tabs can start collapsed based on the view (optional)</li>
+<li>Cross browser compatibility (IE7+, Chrome, Firefox, Safari and Opera)</li>
+<li>Multiple device support (Web, Tablet, Mobile, etc)</li>
+</ul><h1>
+<a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use</h1>
+
+<p>=&gt; Requires jQuery (minimaly jQuery 1.7.0)
+=&gt; Include jquery.responsiveTabs.js
+=&gt; Include responsive-tabs.css for the basic Tabs to Accordion switching
+=&gt; Include style.css for a basic tab/accordion theme</p>
+
+<p>=&gt; Use this HTML markup:</p>
+
+<pre><code>&lt;div id="responsiveTabsDemo"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#tab-1"&gt; .... &lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#tab-2"&gt; .... &lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#tab-3"&gt; .... &lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;div id="tab-1"&gt; ....... &lt;/div&gt;
+    &lt;div id="tab-2"&gt; ....... &lt;/div&gt;
+    &lt;div id="tab-3"&gt; ....... &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>=&gt; Use this jQuery function to enable responsive tabs on the selected element:</p>
+
+<pre><code>$('#responsiveTabsDemo').responsiveTabs({
+    startCollapsed: 'accordion'
+});
+</code></pre>
+
+<h1>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h1>
+
+<h3>
+<a name="npm" class="anchor" href="#npm"><span class="octicon octicon-link"></span></a>npm</h3>
+
+<pre><code>npm install responsive-tabs
+</code></pre>
+
+<h3>
+<a name="bower" class="anchor" href="#bower"><span class="octicon octicon-link"></span></a>Bower</h3>
+
+<pre><code>bower install responsive-tabs
+</code></pre>
+
+<h1>
+<a name="api" class="anchor" href="#api"><span class="octicon octicon-link"></span></a>API</h1>
+
+<p>The following options are available:</p>
+
+<h3>
+<a name="collapsible" class="anchor" href="#collapsible"><span class="octicon octicon-link"></span></a>Collapsible</h3>
+
+<p>If set to 'true' the panels are collapsible. The values 'tabs' and 'accordion' can be used to make the panels collapsible in a specific view/state. If a tab is active and you select it again, the panel will collapse.</p>
+
+<pre><code>    collapsible: false // The panels are not collapsible
+    collapsible: true // The panels are collapsible
+    collapsible: 'tabs' // The panels are only collapsible if the view is currently tab based
+    collapsible: 'accordion' // The panels are only collapsible if the view is currently accordion based
+</code></pre>
+
+<h3>
+<a name="start-collapsed" class="anchor" href="#start-collapsed"><span class="octicon octicon-link"></span></a>Start collapsed</h3>
+
+<p>This option defines if the first panel on load starts collapsed or not. With the values 'tabs' and 'accordion' you can specify in which view the tabs are supposed to start collapsed.</p>
+
+<pre><code>    startCollapsed: false // Do not collapse on start
+    startCollapsed: true // Start with the panels collapsed
+    startCollapsed: 'tabs' // Start with the panels collapsed if the view is currently tab based
+    startCollapsed: 'accordion' // Start with the panels collapsed if the view is currently accordion based
+</code></pre>
+
+<h3>
+<a name="active-tab" class="anchor" href="#active-tab"><span class="octicon octicon-link"></span></a>Active tab</h3>
+
+<p>An 0 based integer that defines the initial opened tab on load.</p>
+
+<pre><code>    active: 1 // Opens the second tab on load
+</code></pre>
+
+<h3>
+<a name="rotate" class="anchor" href="#rotate"><span class="octicon octicon-link"></span></a>Rotate</h3>
+
+<p>This option can be used to auto rotate the tabs. The tabs will stop rotating when a tab is selected.</p>
+
+<pre><code>    rotate: false, // The tabs won't auto rotate
+    rotate: true, // The tabs will auto rotate from the start
+</code></pre>
+
+<h3>
+<a name="animation" class="anchor" href="#animation"><span class="octicon octicon-link"></span></a>Animation</h3>
+
+<p>This option enables the animation of the panels. By default the panels will just show and hide, this option can be used to make the panels slide up and down and fade in and out.</p>
+
+<pre><code>    animation: 'fade', // The panels will fade in and out
+    animation: 'slide', // The panels will slide up and down
+</code></pre>
+
+<h2>
+<a name="callbacks" class="anchor" href="#callbacks"><span class="octicon octicon-link"></span></a>Callbacks</h2>
+
+<h3>
+<a name="activate" class="anchor" href="#activate"><span class="octicon octicon-link"></span></a>Activate</h3>
+
+<p>This callback is called after a tab is selected</p>
+
+<pre><code>    activate: function(){},
+</code></pre>
+
+<h3>
+<a name="deactivate" class="anchor" href="#deactivate"><span class="octicon octicon-link"></span></a>Deactivate</h3>
+
+<p>This callback is called after a tab is deactivated</p>
+
+<pre><code>    deactivate: function(){},
+</code></pre>
+
+<h3>
+<a name="load" class="anchor" href="#load"><span class="octicon octicon-link"></span></a>Load</h3>
+
+<p>This callback is called after the plugin has been loaded</p>
+
+<pre><code>    load: function(){},
+</code></pre>
+
+<h3>
+<a name="activate-state" class="anchor" href="#activate-state"><span class="octicon octicon-link"></span></a>Activate State</h3>
+
+<p>This callback is called after the plugin switches from state (Tab view / Accordion view)</p>
+
+<pre><code>    activateState: function(){}
+</code></pre>
+
+<h1>
+<a name="todo" class="anchor" href="#todo"><span class="octicon octicon-link"></span></a>ToDo</h1>
+
+<p>I am planning on adding these options in the future:</p>
+
+<ul>
+<li>Ajax panels</li>
+<li>Tabs that can be disabled</li>
+<li>Keyboard interaction</li>
+<li>Selection event type (for instance, mouseover)</li>
+</ul><p>If you have good ideas / tips about options / functionality, let me know!</p>
+
+<h1>
+<a name="credits" class="anchor" href="#credits"><span class="octicon octicon-link"></span></a>Credits</h1>
+
+<p>The idea for this plugin is based on 'Easy Responsive Tabs to Accordion' by samsono (github.com/samsono)</p>
+
+<p><a href="https://github.com/samsono/Easy-Responsive-Tabs-to-Accordion">https://github.com/samsono/Easy-Responsive-Tabs-to-Accordion</a></p>
+
+<h1>
+<a name="support" class="anchor" href="#support"><span class="octicon octicon-link"></span></a>Support</h1>
+
+<p>If you have any questions, problems or suggestions, feel free to submit a ticket!</p>
+
+<h1>
+<a name="buy-me-a-beer" class="anchor" href="#buy-me-a-beer"><span class="octicon octicon-link"></span></a>Buy me a beer!</h1>
+
+<p>If you enjoy this plugin and like to make a donation you can use the button below :).</p>
+
+<p><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=jelle%40jellekralt%2enl&amp;lc=NL&amp;item_name=Jelle%20Kralt&amp;item_number=responsive%2dtabs&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted"><img src="https://www.paypalobjects.com/en_GB/i/btn/btn_donate_SM.gif" alt="Buy me a beer"></a></p>
+
+<h1>
+<a name="licence" class="anchor" href="#licence"><span class="octicon octicon-link"></span></a>Licence</h1>
+
+<p>MIT: <a href="http://jellekralt.mit-license.org/">http://jellekralt.mit-license.org/</a></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/jellekralt">jellekralt</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
