@@ -322,6 +322,11 @@
     ResponsiveTabs.prototype._openTab = function(e, oTab, closeCurrent, stopRotation) {
         var _this = this;
 
+        // Force a redraw to handle resize while tab was hidden.
+        var evt = document.createEvent('UIEvents');
+        evt.initUIEvent('resize', true, false,window,0);
+        window.dispatchEvent(evt);
+
         // Check if the current tab has to be closed
         if(closeCurrent) {
             this._closeTab(e, this._getCurrentTab());
